@@ -1,0 +1,9 @@
+numpy==2.0.2
+scipy==1.13.1
+trimesh==4.12.2
+skeletor==1.7.1
+networkx==3.2.1
+pandas==2.3.3
+igraph==1.0.0
+fastremap==1.20.0
+ncollpyde==0.19.0

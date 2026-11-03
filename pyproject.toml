@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dendritic-bistability"
+version = "1.0.0"
+description = "Code for dendritic order-selective front propagation"
+requires-python = ">=3.9,<3.12"
+dependencies = ["numpy==1.26.4", "scipy==1.13.1", "scikit-image==0.22.0", "matplotlib==3.8.4", "neuron==8.2.7"]
+
+[tool.setuptools.packages.find]
+include = ["dendritic_bistability*"]
+namespaces = false
+
+[tool.setuptools.package-data]
+dendritic_bistability = ["mechanisms/*.mod", "mechanisms/*.inc", "parameters.json", "branco/*.hoc", "branco/*.dat", "branco/*.html", "branco/mechanisms/*.mod"]

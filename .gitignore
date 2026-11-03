@@ -1,0 +1,15 @@
+.DS_Store
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+arm64/
+x86_64/
+/Figure*/data/
+/Figure*/results/
+/Figure*/plots/
+/SupplementaryFigure*/data/
+/SupplementaryFigure*/results/
+/SupplementaryFigure*/plots/

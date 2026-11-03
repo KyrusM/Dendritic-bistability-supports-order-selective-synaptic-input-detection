@@ -1,0 +1,132 @@
+{
+  "shaft": {
+    "mechanisms": {
+      "it": {
+        "gbar_it": 0.00016,
+        "vshift_it": 10.0,
+        "v12m_it": 45.0,
+        "v12h_it": 65.0,
+        "am_it": 3.0,
+        "ah_it": 30.0,
+        "vm1_it": 50.0,
+        "vm2_it": 125.0,
+        "vh1_it": 56.0,
+        "vh2_it": 415.0
+      },
+      "cad": {},
+      "Ih": {
+        "gIhbar_Ih": 0.0001
+      },
+      "ca": {
+        "gbar_ca": 0.4
+      },
+      "kBK": {
+        "gpeak_kBK": 0.000268,
+        "caPh_kBK": 0.002,
+        "caPk_kBK": 1.0,
+        "caPmax_kBK": 1.0,
+        "caPmin_kBK": 0.0,
+        "caVhh_kBK": 0.002,
+        "caVhmax_kBK": 155.67,
+        "caVhmin_kBK": -1.0799999999999983,
+        "k_kBK": 17.0,
+        "tau_kBK": 1.0
+      },
+      "kad": {
+        "gkabar_kad": 0.007333333333333333
+      },
+      "kap": {
+        "gkabar_kap": 0.014666666666666668
+      },
+      "kv": {
+        "gbar_kv": 40.0
+      },
+      "na": {
+        "gbar_na": 100.0
+      }
+    }
+  },
+  "soma": {
+    "mechanisms": {
+      "it": {
+        "gbar_it": 0.0002,
+        "vshift_it": 10.0,
+        "v12m_it": 45.0,
+        "v12h_it": 65.0,
+        "am_it": 3.0,
+        "ah_it": 30.0,
+        "vm1_it": 50.0,
+        "vm2_it": 125.0,
+        "vh1_it": 56.0,
+        "vh2_it": 415.0
+      },
+      "cad": {},
+      "Ih": {
+        "gIhbar_Ih": 0.0001
+      },
+      "ca": {
+        "gbar_ca": 2.0
+      },
+      "kBK": {
+        "gpeak_kBK": 0.000268,
+        "caPh_kBK": 0.002,
+        "caPk_kBK": 1.0,
+        "caPmax_kBK": 1.0,
+        "caPmin_kBK": 0.0,
+        "caVhh_kBK": 0.002,
+        "caVhmax_kBK": 155.67,
+        "caVhmin_kBK": -1.0799999999999983,
+        "k_kBK": 17.0,
+        "tau_kBK": 1.0
+      },
+      "kap": {
+        "gkabar_kap": 0.008
+      },
+      "kv": {
+        "gbar_kv": 40.0
+      },
+      "na": {
+        "gbar_na": 900.0
+      }
+    }
+  },
+  "globals": {
+    "vshift_na": -10.0,
+    "vshift_ca": 10.0,
+    "taur_cad": 16.666666666666668,
+    "thi1_na": -58.0,
+    "thi2_na": -58.0
+  },
+  "ions": {
+    "ena": 60.0,
+    "nai": 10.0,
+    "nao": 140.0,
+    "ek": -87.0,
+    "ki": 54.4,
+    "ko": 2.5,
+    "eca": 140.0,
+    "cai": 5e-05,
+    "cao": 2.0
+  },
+  "ion_styles": {
+    "na": 8,
+    "k": 8,
+    "ca": 247
+  },
+  "densities": [
+    "gbar_na",
+    "gbar_kv",
+    "gkabar_kap",
+    "gkabar_kad",
+    "gbar_ca",
+    "gbar_it",
+    "gIhbar_Ih",
+    "gpeak_kBK"
+  ],
+  "sources": {
+    "shaft": "Gao et al. 2021, basal dendrite at 100 um",
+    "soma": "Gao et al. 2021, somatic channels",
+    "voltage_gating": "Boahen 2022",
+    "NMDA_kinetics": "Iacobucci and Popescu 2017; Boahen 2022"
+  }
+}

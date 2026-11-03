@@ -1,0 +1,26 @@
+{
+  "cell.swc": {
+    "dataset": "MICrONS",
+    "cell_id": "864691135117980637",
+    "source": "https://storage.googleapis.com/microns-static-links/skel/swc/proofread/864691135117980637.swc",
+    "coordinate_unit": "um",
+    "radius_unit": "um",
+    "bytes": 423071,
+    "sha256": "fddb00c547cf75aa2eb350860be9e76b33c6a55294456ad74bf5599935a5fe6e"
+  },
+  "cell_surface.npz": {
+    "dataset": "MICrONS",
+    "cell_id": "864691135117980637",
+    "source": "https://storage.googleapis.com/iarpa_microns/minnie/minnie65/seg_m1300",
+    "mesh_lod": 0,
+    "coordinate_unit": "nm",
+    "bytes": 31918964,
+    "sha256": "74e19273e723cd7b80e4c0849fe59fa6c14dac197295f286ef39c6f8a82af896"
+  },
+  "projection.json": {
+    "source": "Figure S7 camera and marker layout",
+    "coordinate_unit": "um",
+    "bytes": 1135,
+    "sha256": "b4ebe7432a8af4d9935aba6ad31b316e1f308ba17a820aff52a10e1873f4dee1"
+  }
+}
