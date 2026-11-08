@@ -1,0 +1,668 @@
+[
+  {
+    "name": "front_ordered",
+    "model": "front",
+    "kind": "ordered",
+    "order": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "parameters": {}
+  },
+  {
+    "name": "front_swap_1_2",
+    "model": "front",
+    "kind": "adjacent_swap",
+    "order": [
+      2,
+      1,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "parameters": {}
+  },
+  {
+    "name": "front_swap_2_3",
+    "model": "front",
+    "kind": "adjacent_swap",
+    "order": [
+      1,
+      3,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "parameters": {}
+  },
+  {
+    "name": "front_swap_3_4",
+    "model": "front",
+    "kind": "adjacent_swap",
+    "order": [
+      1,
+      2,
+      4,
+      3,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "parameters": {}
+  },
+  {
+    "name": "front_swap_4_5",
+    "model": "front",
+    "kind": "adjacent_swap",
+    "order": [
+      1,
+      2,
+      3,
+      5,
+      4,
+      6,
+      7,
+      8,
+      9
+    ],
+    "parameters": {}
+  },
+  {
+    "name": "front_swap_5_6",
+    "model": "front",
+    "kind": "adjacent_swap",
+    "order": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      5,
+      7,
+      8,
+      9
+    ],
+    "parameters": {}
+  },
+  {
+    "name": "front_swap_7_8",
+    "model": "front",
+    "kind": "adjacent_swap",
+    "order": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      7,
+      9
+    ],
+    "parameters": {}
+  },
+  {
+    "name": "front_swap_6_7",
+    "model": "front",
+    "kind": "adjacent_swap",
+    "order": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      6,
+      8,
+      9
+    ],
+    "parameters": {}
+  },
+  {
+    "name": "front_swap_8_9",
+    "model": "front",
+    "kind": "adjacent_swap",
+    "order": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      8
+    ],
+    "parameters": {}
+  },
+  {
+    "name": "front_shuffle_000",
+    "model": "front",
+    "kind": "shuffle",
+    "order": [
+      8,
+      4,
+      3,
+      9,
+      7,
+      1,
+      5,
+      2,
+      6
+    ],
+    "parameters": {}
+  },
+  {
+    "name": "front_shuffle_001",
+    "model": "front",
+    "kind": "shuffle",
+    "order": [
+      7,
+      3,
+      5,
+      9,
+      1,
+      4,
+      6,
+      8,
+      2
+    ],
+    "parameters": {}
+  },
+  {
+    "name": "front_shuffle_002",
+    "model": "front",
+    "kind": "shuffle",
+    "order": [
+      7,
+      1,
+      6,
+      5,
+      3,
+      2,
+      8,
+      4,
+      9
+    ],
+    "parameters": {}
+  },
+  {
+    "name": "front_shuffle_003",
+    "model": "front",
+    "kind": "shuffle",
+    "order": [
+      4,
+      3,
+      2,
+      5,
+      8,
+      1,
+      9,
+      6,
+      7
+    ],
+    "parameters": {}
+  },
+  {
+    "name": "front_shuffle_004",
+    "model": "front",
+    "kind": "shuffle",
+    "order": [
+      7,
+      6,
+      9,
+      5,
+      3,
+      1,
+      2,
+      4,
+      8
+    ],
+    "parameters": {}
+  },
+  {
+    "name": "front_shuffle_005",
+    "model": "front",
+    "kind": "shuffle",
+    "order": [
+      2,
+      8,
+      4,
+      1,
+      7,
+      5,
+      6,
+      9,
+      3
+    ],
+    "parameters": {}
+  },
+  {
+    "name": "front_shuffle_006",
+    "model": "front",
+    "kind": "shuffle",
+    "order": [
+      8,
+      4,
+      9,
+      6,
+      5,
+      7,
+      2,
+      3,
+      1
+    ],
+    "parameters": {}
+  },
+  {
+    "name": "front_shuffle_007",
+    "model": "front",
+    "kind": "shuffle",
+    "order": [
+      4,
+      6,
+      9,
+      5,
+      1,
+      7,
+      3,
+      8,
+      2
+    ],
+    "parameters": {}
+  },
+  {
+    "name": "front_reversed",
+    "model": "front",
+    "kind": "reversed",
+    "order": [
+      9,
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "parameters": {}
+  },
+  {
+    "name": "impedance_ordered",
+    "model": "impedance",
+    "kind": "ordered",
+    "order": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "parameters": {
+      "seeded": false,
+      "girk_shaft_ns_per_um": 0.0
+    }
+  },
+  {
+    "name": "impedance_swap_1_2",
+    "model": "impedance",
+    "kind": "adjacent_swap",
+    "order": [
+      2,
+      1,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "parameters": {
+      "seeded": false,
+      "girk_shaft_ns_per_um": 0.0
+    }
+  },
+  {
+    "name": "impedance_swap_2_3",
+    "model": "impedance",
+    "kind": "adjacent_swap",
+    "order": [
+      1,
+      3,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "parameters": {
+      "seeded": false,
+      "girk_shaft_ns_per_um": 0.0
+    }
+  },
+  {
+    "name": "impedance_swap_3_4",
+    "model": "impedance",
+    "kind": "adjacent_swap",
+    "order": [
+      1,
+      2,
+      4,
+      3,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "parameters": {
+      "seeded": false,
+      "girk_shaft_ns_per_um": 0.0
+    }
+  },
+  {
+    "name": "impedance_swap_4_5",
+    "model": "impedance",
+    "kind": "adjacent_swap",
+    "order": [
+      1,
+      2,
+      3,
+      5,
+      4,
+      6,
+      7,
+      8,
+      9
+    ],
+    "parameters": {
+      "seeded": false,
+      "girk_shaft_ns_per_um": 0.0
+    }
+  },
+  {
+    "name": "impedance_swap_5_6",
+    "model": "impedance",
+    "kind": "adjacent_swap",
+    "order": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      5,
+      7,
+      8,
+      9
+    ],
+    "parameters": {
+      "seeded": false,
+      "girk_shaft_ns_per_um": 0.0
+    }
+  },
+  {
+    "name": "impedance_swap_6_7",
+    "model": "impedance",
+    "kind": "adjacent_swap",
+    "order": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      6,
+      8,
+      9
+    ],
+    "parameters": {
+      "seeded": false,
+      "girk_shaft_ns_per_um": 0.0
+    }
+  },
+  {
+    "name": "impedance_swap_7_8",
+    "model": "impedance",
+    "kind": "adjacent_swap",
+    "order": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      7,
+      9
+    ],
+    "parameters": {
+      "seeded": false,
+      "girk_shaft_ns_per_um": 0.0
+    }
+  },
+  {
+    "name": "impedance_swap_8_9",
+    "model": "impedance",
+    "kind": "adjacent_swap",
+    "order": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      8
+    ],
+    "parameters": {
+      "seeded": false,
+      "girk_shaft_ns_per_um": 0.0
+    }
+  },
+  {
+    "name": "impedance_shuffle_000",
+    "model": "impedance",
+    "kind": "shuffle",
+    "order": [
+      8,
+      4,
+      3,
+      9,
+      7,
+      1,
+      5,
+      2,
+      6
+    ],
+    "parameters": {
+      "seeded": false,
+      "girk_shaft_ns_per_um": 0.0
+    }
+  },
+  {
+    "name": "impedance_shuffle_001",
+    "model": "impedance",
+    "kind": "shuffle",
+    "order": [
+      7,
+      3,
+      5,
+      9,
+      1,
+      4,
+      6,
+      8,
+      2
+    ],
+    "parameters": {
+      "seeded": false,
+      "girk_shaft_ns_per_um": 0.0
+    }
+  },
+  {
+    "name": "impedance_shuffle_002",
+    "model": "impedance",
+    "kind": "shuffle",
+    "order": [
+      7,
+      1,
+      6,
+      5,
+      3,
+      2,
+      8,
+      4,
+      9
+    ],
+    "parameters": {
+      "seeded": false,
+      "girk_shaft_ns_per_um": 0.0
+    }
+  },
+  {
+    "name": "impedance_shuffle_003",
+    "model": "impedance",
+    "kind": "shuffle",
+    "order": [
+      4,
+      3,
+      2,
+      5,
+      8,
+      1,
+      9,
+      6,
+      7
+    ],
+    "parameters": {
+      "seeded": false,
+      "girk_shaft_ns_per_um": 0.0
+    }
+  },
+  {
+    "name": "impedance_shuffle_004",
+    "model": "impedance",
+    "kind": "shuffle",
+    "order": [
+      7,
+      6,
+      9,
+      5,
+      3,
+      1,
+      2,
+      4,
+      8
+    ],
+    "parameters": {
+      "seeded": false,
+      "girk_shaft_ns_per_um": 0.0
+    }
+  },
+  {
+    "name": "impedance_shuffle_005",
+    "model": "impedance",
+    "kind": "shuffle",
+    "order": [
+      2,
+      8,
+      4,
+      1,
+      7,
+      5,
+      6,
+      9,
+      3
+    ],
+    "parameters": {
+      "seeded": false,
+      "girk_shaft_ns_per_um": 0.0
+    }
+  },
+  {
+    "name": "impedance_shuffle_006",
+    "model": "impedance",
+    "kind": "shuffle",
+    "order": [
+      8,
+      4,
+      9,
+      6,
+      5,
+      7,
+      2,
+      3,
+      1
+    ],
+    "parameters": {
+      "seeded": false,
+      "girk_shaft_ns_per_um": 0.0
+    }
+  },
+  {
+    "name": "impedance_reversed",
+    "model": "impedance",
+    "kind": "reversed",
+    "order": [
+      9,
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "parameters": {
+      "seeded": false,
+      "girk_shaft_ns_per_um": 0.0
+    }
+  },
+  {
+    "name": "impedance_shuffle_007",
+    "model": "impedance",
+    "kind": "shuffle",
+    "order": [
+      4,
+      6,
+      9,
+      5,
+      1,
+      7,
+      3,
+      8,
+      2
+    ],
+    "parameters": {
+      "seeded": false,
+      "girk_shaft_ns_per_um": 0.0
+    }
+  }
+]
