@@ -339,16 +339,18 @@ def _receptors(section):
 class SweepDendrite:
     """Build a sealed dendrite with five seed spines and six sequence spines."""
 
-    def __init__(self, placement, spacing_um, imbalance, girk, *, neck_length_um=1.0,
-                 spine_resistivity_ohm_cm=100.0):
+    def __init__(self, placement, spacing_um, imbalance, girk):
         """Set fixed GIRK conductance and vary NMDA according to conductance imbalance."""
         if placement not in ("head", "shaft") or spacing_um <= 0 or not -1 < imbalance < 1:
             raise ValueError("Specify a GIRK placement, positive spacing and imbalance between −1 and 1.")
         load_channels()
+        p = Parameters()
         self.placement, self.spacing_um = placement, float(spacing_um)
         self.imbalance, self.girk = float(imbalance), float(girk)
-        self.neck_length_um = float(neck_length_um)
-        self.spine_resistivity_ohm_cm = float(spine_resistivity_ohm_cm)
+        self.neck_length_um = p.neck_length_um
+        self.neck_resistance_gohm = p.neck_resistance_gohm
+        self.resistivity_ohm_cm = p.resistivity_ohm_cm
+        self.spine_resistivity_ohm_cm = p.spine_resistivity_ohm_cm
         self.padding = max(10, math.ceil(24 / self.spacing_um))
         self.seed_positions = np.linspace(0, self.spacing_um, 5)
         self.sequence_positions = self.spacing_um * np.arange(2, 8, dtype=float)
@@ -381,7 +383,8 @@ class SweepDendrite:
 
     def _spines(self, reference):
         """Create one head and a 1-GΩ neck at every seed, sequence and buffer site."""
-        diameter = np.sqrt(0.04 * self.spine_resistivity_ohm_cm * self.neck_length_um / (np.pi * 1000))
+        diameter = np.sqrt(0.04 * self.spine_resistivity_ohm_cm * self.neck_length_um
+                           / (np.pi * 1000 * self.neck_resistance_gohm))
         for position in self.positions:
             neck, head = h.Section(name="figure7_neck"), h.Section(name="figure7_head")
             neck.L, neck.diam = self.neck_length_um, float(diameter)
@@ -401,7 +404,7 @@ class SweepDendrite:
             section = h.Section(name="figure7_shaft")
             section.L, section.diam = float(right - left), diameter
             section.nseg = 3 if index < 4 else 12
-            _membrane(section, 400)
+            _membrane(section, self.resistivity_ohm_cm)
             set_channels(section, "shaft")
             section.insert("vmax")
             _receptors(section)

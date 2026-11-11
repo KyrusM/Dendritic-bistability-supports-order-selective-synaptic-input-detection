@@ -23,7 +23,7 @@ def main():
     curves = {}
 
     curves.update(run_fixed_girk_sweep(
-        ConductanceCondition("shaft_full", "shaft", 1.15, 2.0, 400.0), results, **settings,
+        ConductanceCondition("shaft_full", "shaft", 1.15), results, **settings,
     ))
 
     curves.update(run_fixed_girk_sweep(

@@ -207,7 +207,7 @@ class PropagationTrial:
         h.frecord_init()
 
     def branch(self, state, prefix, ampa_ns, order, early=True):
-        """Continue one order until a final plateau is established or 300 ms elapses."""
+        """Continue to 300 ms, with optional stopping after a final plateau."""
         self.restore(state, ampa_ns, order)
         if early:
             self.advance(234)
@@ -229,9 +229,7 @@ class PropagationTrial:
 def evaluate_propagation_bundle(condition, spacing, imbalance, requests):
     """Evaluate AMPA values at one spacing and imbalance with common seed initialization."""
     specification = dict(placement=condition["placement"], spacing_um=float(spacing),
-                         imbalance=float(imbalance), girk=float(condition["girk"]),
-                         neck_length_um=float(condition.get("neck_length_um", 1)),
-                         spine_resistivity_ohm_cm=float(condition.get("spine_resistivity_ohm_cm", 100)))
+                         imbalance=float(imbalance), girk=float(condition["girk"]))
     trial = PropagationTrial(specification, requests[0]["ampa_ns"])
     results = {}
     try:

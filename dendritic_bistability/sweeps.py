@@ -200,17 +200,19 @@ def minimum_spacing(classes, bounds, width=0.1, largest_component=False, control
 
 @dataclass(frozen=True)
 class ConductanceCondition:
-    """Specify GIRK placement, conductance and spine geometry for one sweep."""
+    """Specify GIRK placement and conductance for one sweep."""
 
     name: str
     placement: str
     girk: float
-    neck_length_um: float = 1.0
-    spine_resistivity_ohm_cm: float = 100.0
 
     def manifest(self):
-        """Return the condition settings stored with its numerical results."""
-        return asdict(self)
+        """Return the parameters stored with each saved sweep grid."""
+        p = Parameters()
+        return dict(asdict(self), neck_length_um=p.neck_length_um,
+                    neck_resistance_gohm=p.neck_resistance_gohm,
+                    resistivity_ohm_cm=p.resistivity_ohm_cm,
+                    spine_resistivity_ohm_cm=p.spine_resistivity_ohm_cm)
 
 
 UNKNOWN = -1
@@ -228,7 +230,7 @@ def domain_mask(condition, bounds, size):
 
 
 def refine_grid(grid, admitted):
-    """Insert midpoints, retaining only matching, admissible parent classes."""
+    """Infer midpoint classes from agreeing, admissible neighbors."""
     for axis in range(3):
         shape = list(grid.shape)
         shape[axis] = 2 * shape[axis] - 1
@@ -293,7 +295,7 @@ def _write_grid(path, grid, bounds, depth, settings, known):
 
 
 def _settings(condition, bounds, extension, base_hash=None):
-    """Bind restart files to the scientific configuration and implementation."""
+    """Return model settings and source hash for checkpoint validation."""
     folder = Path(__file__).resolve().parent
     digest = hashlib.sha256()
     files = list(folder.glob("*.py")) + [folder / "parameters.json"]
@@ -308,7 +310,7 @@ def _settings(condition, bounds, extension, base_hash=None):
 
 
 def _load_points(path, settings):
-    """Read finished bundles from one compact append-only checkpoint."""
+    """Load evaluated points or start a new checkpoint."""
     known = {}
     if not path.exists():
         path.write_text(json.dumps(dict(settings=settings)) + "\n")
@@ -337,7 +339,7 @@ def _load_points(path, settings):
 
 
 def _evaluate_bundle(task):
-    """Import the NEURON trial implementation only in an evaluating process."""
+    """Evaluate AMPA values at fixed spacing and imbalance."""
     from .simulation import evaluate_propagation_bundle
 
     condition, spacing, imbalance, requests = task
@@ -348,7 +350,7 @@ class _PropagationSampler:
     """Manage the saved classifications and grid levels for one condition."""
 
     def __init__(self, condition, bounds, destination, extension):
-        """Load matching checkpoints and the extension's shared boundary plane."""
+        """Prepare checkpoints and reuse the base boundary for extensions."""
         self.condition = dict(condition.manifest(), extension=bool(extension))
         self.bounds = np.asarray(bounds, dtype=float)
         self.destination = Path(destination)
@@ -377,7 +379,7 @@ class _PropagationSampler:
             raise RuntimeError("A saved swapped-only result requires inspection before resuming this base sweep.")
 
     def _coordinates(self, index):
-        """Convert a master-grid index to its original physical coordinates."""
+        """Convert a grid index to spacing, imbalance and AMPA."""
         return tuple(float(lo + (hi - lo) * i / 128)
                      for i, (lo, hi) in zip(index, self.bounds))
 
@@ -388,7 +390,7 @@ class _PropagationSampler:
                 grid[tuple(i // scale for i in index)] = category
 
     def _tasks(self, points, coarse, scale, force_pair):
-        """Group sorted point requests into eight-AMPA trial bundles."""
+        """Group up to eight AMPA values per spacing and imbalance."""
         groups = {}
         for point in sorted(set(tuple(map(int, point)) for point in points)):
             index = tuple(i * scale for i in point)
@@ -446,7 +448,7 @@ class _PropagationSampler:
         return {point: self.known[tuple(i * scale for i in point)][0] for point in points}
 
     def check_interpolation(self, pool, grid, coarse, admitted, scale, depth):
-        """Check interpolated classes and directly resolve changed neighborhoods."""
+        """Verify inferred classes and expand checks around mismatches."""
         path = self.folder / f"interpolation_depth_{depth}.json"
         if path.exists():
             plan = json.loads(path.read_text())
@@ -577,7 +579,7 @@ def sample_propagation_grid(condition, bounds, destination, *, depth=8, workers=
 
 
 def minimum_selective_spacing(classes, bounds, width):
-    """Find the first spacing with a continuous selective interval of the required width."""
+    """Find the smallest sampled spacing with a qualifying selective interval."""
     spacing, imbalance, ampa = [
         np.linspace(*extent, count) for extent, count in zip(bounds, classes.shape)
     ]
